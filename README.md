@@ -4,18 +4,16 @@ cocos creator3网格导航工具（基于three-pathfinding项目）
 ### 致谢（Thanks for three-pathfinding）
 >感谢[three-pathfinding](https://github.com/donmccurdy/three-pathfinding)项目为我在cocos creator3引擎中能使用网格导航提供解决思路和支持。为了表达对原项目的尊重，本项目仅针对适配creator引擎做了修改，而保留了原项目的所有代码和注释。也希望这份代码能给大家带来帮助！ 
 
-（另外由于本人原本是后端开发，现在刚接触游戏引擎，如代码中存在纰漏也欢迎大家指正，谢谢！😊）
-
 欢迎大家可以访问[three-pathfinding](https://github.com/donmccurdy/three-pathfinding)项目进行代码参考研究！
 
 
 ### 使用（Quickstart）
-0. 下载本库,然后添加到cocos creator引擎当中
+下载本库,然后添加到cocos creator引擎当中
 ``` bash
 git clone https://github.com/wangsong19/pathfindCCS.git
 ```
 
-1. 在需要进行寻路的节点所挂在的脚本中引入该库
+在需要进行寻路的节点所挂在的脚本中引入该库
 ``` typescript
 start() {
     this.fpHelper = new FPHelper(
@@ -31,7 +29,7 @@ start() {
     // 其他初始化数据...
 }
 ```
-2. 在该节点的帧处理函数进行更新调用
+在该节点的帧处理函数进行更新调用
 ``` typescript
 update(deltaTime: number) {
     // 进行寻路
@@ -61,4 +59,4 @@ update(deltaTime: number) {
 
 ### 注意
 
-使用本库应该把导航网格与游戏场景本身的坐标保持一致，尽管可以设置寻路的高度容差（`fpHelper.settoleranceH(h)`），但这并不是一个好主意。同样地，控制玩家（被追赶者）的移动路径应该符合物理属性（即在地面上（也就是网格上））行走，而不是飘在空中，这样会寻路丢失目标
+使用本库应该把导航网格与游戏场景本身的坐标保持一致，尽管可以设置寻路的高度容差（`fpHelper.settoleranceH(h)`），但这并不是一个好主意。同样地，控制玩家（被追赶者）的移动路径应该符合物理属性（即在地面上（尽可能贴合网格））行走，而不是飘在空中，这样会寻路丢失目标。
