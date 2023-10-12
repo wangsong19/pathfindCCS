@@ -1,6 +1,7 @@
 import { Camera, Vec3, resources, Mesh, gfx, Color, Node } from 'cc';
 
 import { Pathfinding } from './Pathfinding'
+import { Utils } from './Utils';
 
 
 /**
@@ -191,7 +192,14 @@ export class FPHelper {
      */
      upadteMySpeed (speed: number) {
         this.speed = speed;
-     }
+    }
+
+    /**
+     * 设置地形的高度容差范围
+     */
+    settoleranceH (h: number) {
+        Utils.setH(h);
+    }
 
     /**
      * 设置需要重新寻路的距离条件

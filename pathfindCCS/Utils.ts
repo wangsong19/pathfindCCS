@@ -3,6 +3,14 @@ const { MeshUtils } = utils;
 
 
 export class Utils {
+
+    // 高度容差（根据地形复杂度合理设置）
+    static H: number = 0.5;
+
+    static setH (h: number) {
+        if (h < 0) return;
+        Utils.H = h;
+    }
     
     static roundNumber (value, decimals) {
         const factor = Math.pow(10, decimals);
@@ -41,10 +49,10 @@ export class Utils {
             polygonVertices.push(vertices[vId]);
         });
     
-        const H = 2; // 高度容差（根据地形复杂度合理设置）
+        // const H = 2; // 高度容差（根据地形复杂度合理设置）
         if (this.isPointInPoly(polygonVertices, vector)) {
         }
-        if (vector.y < highestPoint + H && vector.y > lowestPoint - H &&
+        if (vector.y < highestPoint + Utils.H && vector.y > lowestPoint - Utils.H &&
             this.isPointInPoly(polygonVertices, vector)) {
           return true;
         }
