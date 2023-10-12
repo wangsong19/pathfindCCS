@@ -193,10 +193,6 @@ export class FPHelper {
         this.speed = speed;
      }
 
-    // private reCalDistance: number = 0.5; // 单位 1
-    // private minCloseDistance: number = 0.05 * 0.05;
-    // private minNoNavDistance: number = 0.1; // must be > minCloseDistance
-
     /**
      * 设置需要重新寻路的距离条件
      * （当目标位置移动多少后会重新规划路线）
